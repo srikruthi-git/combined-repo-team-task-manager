@@ -1,0 +1,25 @@
+# General
+.DS_Store
+Thumbs.db
+*.log
+
+# Node
+node_modules/
+
+# Env
+.env
+.env.*
+
+# Builds
+.next/
+dist/
+build/
+
+# SQLite
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Turbo/Next
+.turbo/
+out/
