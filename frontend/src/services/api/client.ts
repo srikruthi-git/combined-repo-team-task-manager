@@ -1,7 +1,12 @@
 import { getAuth } from "../../auth/authStorage";
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000/api/v1";
+const rawApiBase = process.env.NEXT_PUBLIC_API_URL || "";
+const normalizedBase = rawApiBase.replace(/\/$/, "");
+const API_BASE = normalizedBase
+  ? normalizedBase.endsWith("/api/v1")
+    ? normalizedBase
+    : `${normalizedBase}/api/v1`
+  : "/api/v1";
 
 type RequestOptions = RequestInit & {
   skipAuth?: boolean;

@@ -10,7 +10,7 @@ initDatabase();
 
 app.use(
   cors({
-    origin: config.corsOrigin,
+    origin: "*",
   })
 );
 app.use(express.json());
