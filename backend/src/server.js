@@ -25,6 +25,10 @@ app.use((req, res) => {
   res.status(404).json({ success: false, message: "Not found" });
 });
 
-app.listen(config.port, () => {
-  console.log(`Backend running on port ${config.port}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(config.port, () => {
+    console.log(`Backend running on port ${config.port}`);
+  });
+}
+
+module.exports = app;
